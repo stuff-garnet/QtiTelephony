@@ -124,6 +124,8 @@
 .method public static extractValidBands([I)[I
     .locals 8
 
+    if-eqz p0, :return_empty_array
+
     .line 93
     new-instance v0, Ljava/util/ArrayList;
 
@@ -225,6 +227,11 @@
 
     :cond_3
     return-object p0
+
+    :return_empty_array
+    const/4 v0, 0x0
+    new-array v0, v0, [I
+    return-object v0
 .end method
 
 .method public static getRefreshTimerTypeFromString(Ljava/lang/String;)I
